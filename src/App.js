@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
+import {
+    useAccount,
+    useConnect,
+    useDisconnect,
+  } from 'wagmi'
+  
+  function App() {
+    const { address, isConnected } = useAccount()
+    const { connect, connectors, error, isPending } = useConnect()
+    const { disconnect } = useDisconnect()
+  
+    return (
+      <div style={{ padding: 40 }}>
+        <h2>Wagmi v2 Wallet Test</h2>
+  
+        {isConnected ? (
+          <>
+            <p>Connected: {address}</p>
+            <button onClick={() => disconnect()}>Disconnect</button>
+          </>
+        ) : (
+          connectors.map((connector) => (
+            <button
+              key={connector.uid}
+              onClick={() => connect({ connector })}
+              style={{ display: 'block', marginBottom: 10 }}
+            >
+              Connect with {connector.name}
+            </button>
+          ))
+        )}
+  
+        {isPending && <p>Connecting…</p>}
+        {error && <p style={{ color: 'red' }}>{error.message}</p>}
+      </div>
+    )
+  }
+  
+  export default App
+  
