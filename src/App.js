@@ -66,63 +66,103 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    background: 'linear-gradient(135deg, #0f0c19, #602b63, #94243e)',
-    fontFamily: 'Inter, sans-serif',
+    background: `
+      radial-gradient(circle at top, rgba(0,255,255,0.08), transparent 40%),
+      linear-gradient(135deg, #070916, #0d1b2a, #120720)
+    `,
+    fontFamily: '"Inter", system-ui, sans-serif',
   },
+
   card: {
     width: 360,
     padding: 32,
-    borderRadius: 16,
-    background: 'rgba(255,255,255,0.08)',
-    backdropFilter: 'blur(12px)',
-    color: '#fff',
-    boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
+    borderRadius: 18,
+    background: 'rgba(10, 20, 40, 0.75)',
+    backdropFilter: 'blur(14px)',
+    color: '#e6f1ff',
+    border: '1px solid rgba(0,255,255,0.15)',
+    boxShadow: `
+      0 0 0 1px rgba(0,255,255,0.08),
+      0 20px 40px rgba(0,0,0,0.6),
+      inset 0 0 20px rgba(0,255,255,0.05)
+    `,
   },
+
   title: {
     margin: 0,
     fontSize: 24,
+    letterSpacing: '0.04em',
+    textTransform: 'uppercase',
   },
+
   subtitle: {
-    opacity: 0.7,
+    opacity: 0.6,
     marginBottom: 24,
+    fontSize: 14,
   },
+
   buttons: {
     display: 'grid',
     gap: 12,
   },
+
   button: {
     padding: '12px 16px',
-    borderRadius: 10,
-    border: 'none',
+    borderRadius: 12,
+    border: '1px solid rgba(0,255,255,0.25)',
     cursor: 'pointer',
-    background: 'linear-gradient(135deg, #7F7FD5, #86A8E7)',
-    color: '#000',
+    background: `
+      linear-gradient(
+        135deg,
+        rgba(0,255,255,0.9),
+        rgba(120,140,255,0.9)
+      )
+    `,
+    color: '#050b14',
     fontWeight: 600,
+    letterSpacing: '0.03em',
+    boxShadow: `
+      0 0 12px rgba(0,255,255,0.35),
+      inset 0 0 8px rgba(255,255,255,0.25)
+    `,
   },
+
   connectedBox: {
     padding: 16,
     borderRadius: 12,
-    background: 'rgba(0,0,0,0.3)',
+    background: 'rgba(0,0,0,0.45)',
     marginBottom: 16,
     display: 'flex',
     justifyContent: 'space-between',
+    border: '1px solid rgba(0,255,255,0.15)',
+    fontFamily: 'monospace',
+    boxShadow: 'inset 0 0 10px rgba(0,255,255,0.08)',
   },
+
   disconnect: {
     width: '100%',
     padding: 12,
-    borderRadius: 10,
-    background: '#ff4d4f',
+    borderRadius: 12,
+    background: 'linear-gradient(135deg, #ff4d4f, #ff7a7a)',
     border: 'none',
-    fontWeight: 600,
+    fontWeight: 700,
     cursor: 'pointer',
+    letterSpacing: '0.04em',
+    boxShadow: '0 0 12px rgba(255,80,80,0.5)',
   },
+
   status: {
     marginTop: 16,
-    opacity: 0.8,
+    opacity: 0.75,
+    fontSize: 13,
+    fontFamily: 'monospace',
   },
+
   error: {
     marginTop: 16,
     color: '#ff6b6b',
+    fontSize: 13,
+    fontFamily: 'monospace',
   },
 }
 
