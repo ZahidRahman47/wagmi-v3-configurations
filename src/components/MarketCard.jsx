@@ -55,7 +55,7 @@ export default function MarketCard({ pool }) {
             <div style={styles.topPick}>
                 🔥 Top Pick: {pool.topOption?.optionName}
             </div>
-            <div style={styles.topPick}>
+            <div style={{marginTop:"12px"}}>
                 <button style={styles.button}> Place Trade</button>
             </div>
         </div>
