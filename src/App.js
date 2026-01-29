@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import { useAccount, useConnect, useDisconnect } from "wagmi"
 import { Rain } from "@rainprotocolsdk/sdk"
 import { styles } from "./styles/styles"
@@ -16,7 +16,7 @@ export default function App() {
   const [loading, setLoading] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const rain = new Rain()
+  const rain = useMemo(() => new Rain(), [])
 
   const shortAddress = address
     ? `${address.slice(0, 6)}...${address.slice(-4)}`
@@ -43,7 +43,8 @@ export default function App() {
         onDisconnect={disconnect}
       />
 
-      <MarketGrid rains={rains} loading={loading} />
+      <MarketGrid rains={rains} loading={loading} rain={rain} />
+
 
       {isModalOpen && (
         <WalletModal
