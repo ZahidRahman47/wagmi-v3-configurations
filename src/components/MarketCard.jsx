@@ -24,7 +24,7 @@ export default function MarketCard({ pool }) {
             <div style={styles.statusRow}>
                 <span>Id: </span>
                 <span style={styles.statusBadge}>{pool._id}</span>
-                
+
             </div>
             <p style={styles.meta}>Participants: {pool.participantCount}</p>
             <p style={styles.volumeRow}>
